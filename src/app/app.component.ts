@@ -15,12 +15,13 @@ export class AppComponent implements OnInit {
 
   constructor(public filmsService: SwapiFilmsService) {}
   ngOnInit(): void {
+    this.sleep(10000);
     this.filmsService.getAll().toPromise().then((data) => {
       // data?.forEach(movie => this.movies.push(movie));
       this.movies = data;
       this.isShowSpinner = false;
     });
-    this.sleep(5000);
+    this.sleep(10000);
   }
   // tslint:disable-next-line:typedef
   sleep(ms) {
