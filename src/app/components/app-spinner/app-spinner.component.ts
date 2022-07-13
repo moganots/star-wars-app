@@ -6,7 +6,7 @@ import { Component, OnInit, Input } from '@angular/core';
     styleUrls: ['./app-spinner.component.css']
 })
 export class AppSpinnerComponent implements OnInit {
-    @Input() public message = '';
+    message = 'Please wait, loading...';
 
     constructor(){}
 

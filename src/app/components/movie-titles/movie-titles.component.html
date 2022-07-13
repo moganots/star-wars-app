@@ -1,0 +1,5 @@
+<ul>
+  <li *ngFor="let movie of movies" (click)="onButtonClickSelectMovie(movie)">
+    {{ movie?.name || movie?.title }}
+  </li>
+</ul>

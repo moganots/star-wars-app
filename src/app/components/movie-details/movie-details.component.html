@@ -1,0 +1,5 @@
+<p class="movie_title">
+  {{ selectedMovieService?.selectedMovie?.title || selectedMovieService?.selectedMovie?.name }}
+</p>
+<p>{{ selectedMovieService?.selectedMovie?.synopsis || selectedMovieService?.selectedMovie?.opening_crawl }}</p>
+<p>{{ selectedMovieService?.selectedMovie?.release_date | date: "dd/MM/yyyy" }}</p>
