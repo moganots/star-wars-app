@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { SelectedMovieService } from './services/selected-movie-service/selected-movie.service';
 import { SwapiFilmsService } from './services/swapi-films-service/swapi-films-service.service';
 
@@ -8,7 +9,7 @@ import { SwapiFilmsService } from './services/swapi-films-service/swapi-films-se
   styleUrls: ['./app.component.css'],
   providers: [SwapiFilmsService, SelectedMovieService],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
   title = 'angular-sample-app';
   isLoading = true;
   movies = [];
@@ -26,10 +27,15 @@ export class AppComponent implements OnInit {
         this.movies = data;
         this.isLoading = false;
       });
+    localStorage.setItem(environment.localStorageSelectedMovie, {});
     this.sleep(10000);
   }
 
   sleep(ms): any {
     return new Promise((resolve) => setTimeout(ms));
+  }
+
+  ngOnDestroy(): void {
+    localStorage.removeItem(environment.localStorageSelectedMovie);
   }
 }

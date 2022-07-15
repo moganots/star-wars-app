@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { SelectedMovieService } from 'src/app/services/selected-movie-service/selected-movie.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-movie-titles',
@@ -16,5 +17,6 @@ export class MovieTitlesComponent implements OnInit {
 
   onButtonClickSelectMovie(selectedMovie): void {
     this.selectedMovieService.changeSelectedMovie(selectedMovie);
+    localStorage.setItem(environment.localStorageSelectedMovie, selectedMovie);
   }
 }
