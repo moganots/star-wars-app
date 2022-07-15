@@ -4,6 +4,11 @@
 /dist
 /tmp
 /out-tsc
+
+# Ignore any files in /bin and /obj Folders
+**/bin/*
+**/obj/*
+
 # Only exists if Bazel was run
 /bazel-out
 
@@ -11,8 +16,8 @@
 /node_modules
 
 # profiling files
-chrome-profiler-events*.json
-speed-measure-plugin*.json
+chrome-profiler-events.json
+speed-measure-plugin.json
 
 # IDEs and editors
 /.idea
